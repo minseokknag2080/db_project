@@ -27,7 +27,7 @@ st.subheader("📋 실시간 데이터베이스 연동 현황")
 try:
     # 📍 중요: 테이블 이름을 명시적으로 확인하세요. 
     # 만약 Supabase Table Editor에 이름이 대문자라면 대문자로 바꿔야 합니다.
-    response = supabase.table("map_metadata").select("*").execute()
+    response = supabase.from_("map_metadata").select("*").execute()
     
     if response and hasattr(response, 'data') and response.data:
         meta = response.data[0]
